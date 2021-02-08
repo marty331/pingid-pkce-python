@@ -17,21 +17,6 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route("/callback")
-def callback():
-    global received_callback, code, error_message, received_state
-    error_message = None
-    code = None
-    if 'error' in request.args:
-        error_message = request.args['error'] + \
-            ': ' + request.args['error_description']
-    else:
-        code = request.args['code']
-    received_state = request.args['state']
-    received_callback = True
-    return "return to application now."
-
-
 class ServerThread(threading.Thread):
     def __init__(self, app):
         threading.Thread.__init__(self)
@@ -116,3 +101,18 @@ data = r.json()
 
 for client in data:
     print("Client: " + client['name'])
+
+
+@app.route("/callback")
+def callback():
+    global received_callback, code, error_message, received_state
+    error_message = None
+    code = None
+    if 'error' in request.args:
+        error_message = request.args['error'] + \
+            ': ' + request.args['error_description']
+    else:
+        code = request.args['code']
+    received_state = request.args['state']
+    received_callback = True
+    return "return to application now."
