@@ -116,3 +116,8 @@ def callback():
     received_state = request.args['state']
     received_callback = True
     return "return to application now."
+
+@app.route("/api/getvalues")
+@login_required
+def get_values():
+    return True
