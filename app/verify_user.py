@@ -16,6 +16,7 @@ def login_required(f):
             token = authorization.split(' ')[1]
             resp = decode(token, None, verify=False, algorithms=['HS256'])
             g.user = resp['mail']
+            # code here to validate if user should be part of DAP group 
         except exceptions.DecodeError:
             return json.dumps({'error': 'invalid authorization token'}), 403, {'Content-type': 'application/json'}
 
