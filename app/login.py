@@ -82,6 +82,8 @@ if error_message:
     exit(-1)
 
 # Exchange the code for a token
+params = dict(url_decode(urlparse.urlparse(rv.location).query))
+code = params['code']
 url = 'https://sso%s.shell.com/as/token.oauth2' % pingenv
 headers = {'Content-Type': 'application/json'}
 body = {'grant_type': 'authorization_code',
