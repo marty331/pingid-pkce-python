@@ -82,6 +82,10 @@ if error_message:
     exit(-1)
 
 # Exchange the code for a token
+redirect = resp.headers['Location']
+query = urllib.parse.urlparse(redirect).query
+redirect_params = urllib.parse.parse_qs(query)
+code = redirect_params['code'][0]
 params = dict(url_decode(urlparse.urlparse(rv.location).query))
 code = params['code']
 url = 'https://sso%s.shell.com/as/token.oauth2' % pingenv
