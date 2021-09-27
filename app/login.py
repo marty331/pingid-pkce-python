@@ -102,7 +102,7 @@ data = r.json()
 for client in data:
     print("Client: " + client['name'])
 
-
+# this is the callback url - once application authentication is done, application will route here..
 @app.route("/callback")
 def callback():
     global received_callback, code, error_message, received_state
@@ -118,6 +118,6 @@ def callback():
     return "return to application now."
 
 @app.route("/api/getvalues")
-@login_required
+# @login_required
 def get_values():
     return True
