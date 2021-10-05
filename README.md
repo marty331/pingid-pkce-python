@@ -1,11 +1,11 @@
-#Background
-The goal of this repository is to demonstrate useful permutations of pingid id python implementations.
+#**Background
+The goal of this repository is to demonstrate useful permutations of pingid id python implementations.**
 
 Pingid integration is Shell's standard method of securing applications which will have endpoints exposed to the open internet. 
 While many librarys exist for doing this in C# and javascript, there is not a pyton analogue for the functionality required for how Shell has implemented ping. 
 
-#PKCE - 'Proof Key for Code Exchange' Explained 
-_____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+#**PKCE - 'Proof Key for Code Exchange' explained **
+
 To be specific, Shell uses the PKCE security standard. It is a more secure form of Oauth2. 
 An example of basic Oauth2 would be a two factor verification for login to something like a social media site.
 To facilitate a basic Oauth2 implementation, a post reqest is made to a token endpoint, using an assigned client id and client secret, and a token is returned. Then that token is used to make a second post request to an authorization endpoint, which then redirects the user to the landing page of the application if all is well. 
@@ -24,7 +24,7 @@ For more details on everything needed for each post request in PKCE flow, please
 https://developer.okta.com/blog/2019/08/22/okta-authjs-pkce
 https://www.stefaanlippens.net/oauth-code-flow-pkce.html
 
-#Examples explained
+#**Examples explained**
 simple_flask_app - striped down pure python flask example
 flask_templates_databaseforuser - uses flask templates and an option to toggle matching the users email versus a database table on top of PKCE. heavily commented code. uses no ping specific libraries.
 pingid_plotly_dash - the very radical departure implementation of pingid for plotly dash. most of the magic happens under the hood, so numerous break points and stepping will be needed to understand why it works. also has an option of checking user emails against a database table. also has an option for using oauth0 to generate an artifical ping endpoint for testing. 
