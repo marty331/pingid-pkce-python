@@ -2,7 +2,7 @@
 The goal of this repository is to demonstrate useful permutations of pingid id python implementations.
 
 Pingid integration is Shell's standard method of securing applications which will have endpoints exposed to the open internet. 
-While many librarys exist for doing this in C# and javascript, there is not a pyton analogue for the functionality required for how Shell has implemented ping. 
+While many librarys exist for doing this in C# and javascript, there is not a python analogue for the functionality required for how Shell has implemented ping. 
 
 # **PKCE - 'Proof Key for Code Exchange' explained**
 
@@ -17,11 +17,11 @@ The flow changes from
 
 **Oauth2 stock**
 
-1. post request with id and secret
+1. post request to token server with id and secret
 2. obtain token 
 3. post request with token to auth server 
 4. get redirected to app fully logged in 
-5. app continues to check for valid token in cookies with each request to
+5. app continues to check for valid token in cookies with each request
 
 **Oauth2 PKCE**
 
@@ -29,7 +29,8 @@ The flow changes from
 2. post request to auth server with code challenge
 3. auth server makes its own base64 hash of the code challenge and stores it, then returns an authorization code to the app
 4. app makes second post request containing the returned autorization code, and the code verifier to the token end point
-5. auth server compares its own base64 hash of the code challenge with the code verifier, then issues a token if they match and redirects to the apps landing page authenticated 6. app continues to check for valid token in cookies with each request
+5. token server compares the stored base64 hash of the code challenge with the code verifier, then issues a token if they match and redirects to the apps landing page authenticated 
+6. app continues to check for valid token in cookies with each request
 
 For more details on everything needed for each post request in PKCE flow, please see below links or the code. They will also cover token validation which is not discussed above. 
 
