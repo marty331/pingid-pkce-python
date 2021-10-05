@@ -2,6 +2,9 @@ import os
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
+# set to True for email validation versus a database table, having schema described in the readme.md of this app
+useSQL = None
+
 # load in environment variables/secrets
 RELEASE_VERSION ='2.' + open('environment/release.version.env', 'r').read()
 

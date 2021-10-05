@@ -95,9 +95,10 @@ class CustomOAuth(Auth):
             if resp.status_code == 200:
                 user_data = resp.json()
                 
-                # obtain email address logged in user
-                user_email = user_data[USER_INFO_EMAIL]
-                res = api_library.get_user_by_email(user_email)
+                # obtain email address of logged in user and verify
+                if useSQL:
+                    user_email = user_data[USER_INFO_EMAIL]
+                    res = api_library.get_user_by_email(user_email)
 
                 r = flask.redirect(flask.session['REDIRECT_URL'])
                 r.set_cookie(COOKIE_AUTH_USER_NAME, user_email, max_age=COOKIE_EXPIRY)
