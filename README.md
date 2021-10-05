@@ -1,10 +1,10 @@
-**Background
+**Background - 
 The goal of this repository is to demonstrate useful permutations of pingid id python implementations.**
 
 Pingid integration is Shell's standard method of securing applications which will have endpoints exposed to the open internet. 
 While many librarys exist for doing this in C# and javascript, there is not a pyton analogue for the functionality required for how Shell has implemented ping. 
 
-**PKCE - 'Proof Key for Code Exchange' explained **
+**PKCE - 'Proof Key for Code Exchange' explained**
 
 To be specific, Shell uses the PKCE security standard. It is a more secure form of Oauth2. 
 An example of basic Oauth2 would be a two factor verification for login to something like a social media site.
