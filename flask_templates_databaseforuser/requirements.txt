@@ -1,0 +1,9 @@
+webbrowser
+jsonify
+flask_cors
+flask_wtf
+wtforms
+python-dotenv
+flask
+sqlalchemy
+waiting
