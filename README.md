@@ -52,5 +52,5 @@ https://www.stefaanlippens.net/oauth-code-flow-pkce.html
 You project will reach out to the pingid team and pay the fee from its budget. The ping team will provide a client id when they set up the endpoint. Before setting it up, they will ask the developer for the desired redirect_uri, which will then be whitelisted by ping as the destination for the authentication token after making two successful post requests. 
 As a developer, you should...
 1. Ensure that the redirect_uri is your apps production url name plus '/callback'. Any endpoint may be listened to in order to receive a token from the ping federate, and whitelisted by the federate, but it is best practice to isolate this to /callback. 
-2. Ask about assigning a localhost url and port of choice, such as 127.0.0.1/callback, to the same client id in order to allow local testing. 
+2. Ask about assigning a localhost url and port of choice, such as 127.0.0.1/callback, to the same client id in order to allow local testing. They may instead issue a seperate client id which only works for the dev endpoint. Respond accordingly in the env vars. 
 3. Converse with the ping team about any issue obtaining a token or with an endpoint becoming unavailable. Sso dev has been known to go down. 
