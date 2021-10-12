@@ -4,14 +4,13 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.engine import url
 
-from env import sqldbPassword, dbServer, dbName, sqldbUsername
+from .config import *
 
 
 driver = '{ODBC Driver 17 for SQL Server}'
-server=dbServer
-database=dbName
+server= dbServer
+database= dbName
 username = sqldbUsername
-
 password = sqldbPassword
 
 connection_string = f'DRIVER={driver};SERVER={server};'

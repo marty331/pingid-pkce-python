@@ -1,0 +1,10 @@
+django
+django-rest-framework
+python-dotenv
+sqlalchemy
+waiting
+jsonify
+azure-identity
+azure-keyvault-secrets
+pandas
+pyodbc
