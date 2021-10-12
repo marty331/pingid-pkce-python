@@ -14,7 +14,7 @@ redirect_uri='http://127.0.0.1:8000/callback' #localhost urls for ping must be s
 
 
 if os.environ.get('env') == 'local' or env=='local':
-    clientID = os.getenv('clientID')
+    clientID = os.getenv('devclientID')
     sqldbPassword = os.getenv('sqldbPassword')
     dbServer = os.getenv('dbServer')
     dbName = os.getenv('dbName')
@@ -27,7 +27,7 @@ else:
     credential = DefaultAzureCredential()
     client = SecretClient(vault_url=KVUri, credential=credential)
 
-    clientID = client.get_secret('clientID').value
+    clientID = client.get_secret('prodclientID').value
     sqldbPassword = client.get_secret('sqldbPassword').value
     dbServer = client.get_secret('dbServer').value
     dbName = client.get_secret('dbName').value

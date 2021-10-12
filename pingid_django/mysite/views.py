@@ -31,15 +31,15 @@ def hello(request):
 """ /callback app endpoint """
 #listener for getting from ping federate after first post request is made. 
 def callback(request):
-    error_message = None
-    code = None
-    if 'error' in request.args:
-        error_message = request.args['error'] + ':\n' + request.args['error_description']
+    code = request.GET.get('code','')
+    if code is None:
+        error_message = request.GET.get('error_message','')
+        error_description = request.GET.get('error_description','')
+        error_message = 'Error:' + error_message + ':\n' + error_description
         response = HttpResponse(error_message)
         response.status_code = 500 
         return response
     else:
-        code = request.args['code']
         os.environ['verification_code']=code
         print(f'verification code obtained - {code}')
         return redirect('pingid:obtaintoken')

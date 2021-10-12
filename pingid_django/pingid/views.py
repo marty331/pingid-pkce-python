@@ -11,6 +11,8 @@ from .database import connection_url, get_user_list
 from django import forms 
 from .config import *
 import webbrowser
+from waiting import wait 
+import requests 
 
 class LoginForm(forms.Form):
     email = forms.EmailField()
@@ -44,7 +46,7 @@ def login(request):
     elif os.getenv("token") is None:
         return redirect('pingid:pingauthrequired')
     else:
-        return redirect('mysite:hello')
+        return redirect('hello')
 
 """ /usesql endpoint for checking user submitted email against db"""
 def usesql(request):
@@ -118,7 +120,7 @@ def obtaintoken(request):
             return redirect('pingid:pingauthrequired')
         else:
             os.environ['token'] = json.loads(resp.text).get("access_token")
-            return redirect('mysite:hello')
+            return redirect('hello')
 
     else:
         return redirect('pingid:pingauthrequired')
