@@ -4,6 +4,6 @@
 2. copy the 'pingid' folder such that it sits on the same directory level as mysite
 3. add the views seen in this sample mysite folder to your apps views.py.
 4. same as above, but for urls.py.
-5. Fill out the .env and config files located in /pingid as needed.
+5. Fill out and/or create the .env and config files located in /pingid as needed.
 6. Add pingid to your installed apps in the settings.py of your main app 
 7. use a wrapper or django built in method to ensure the presence of the token at each endpoint that must be secured. 
