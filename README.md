@@ -1,7 +1,7 @@
 # Background 
 The goal of this repository is to demonstrate useful permutations of pingid id python implementations.
 
-Pingid integration is Shell's standard method of securing applications which will have endpoints exposed to the open internet. The product used for it is known as pingfederate, or simply SSO meaning single sign on. While many librarys exist for doing this in C# and javascript, there is not a python analogue for the functionality required for how Shell has implemented ping. 
+Pingid integration is Shell's standard method of securing applications which will have endpoints exposed to the open internet. The product used for it is known as pingfederate, or simply SSO meaning single sign on. While many libraries exist for doing this in C# and javascript, there is not a python analogue for the functionality required for how Shell has implemented ping. 
 
 Note that many of these examples have ways to implement a database based user and password system to further limit access, as this request is also common. You may either implement this as seen here, or contact the ping team to maintain a whitelist of @shell.com user emails on the pingfederate side to handle that part for you. You would then need to add an additonal scope to your post requests which the team should provide, and toggle the 'usesql' booleans off. 
 
