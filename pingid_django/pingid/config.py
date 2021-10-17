@@ -10,8 +10,6 @@ token_url = "https://sso-dev.shell.com/as/token.oauth2" #static for all of shell
 scope = 'openid profile email'#from ping team, may change for each app
 authorization_server = 'https://sso-dev.shell.com/as/authorization.oauth2' #static for all of shell
 usesql=True #sets up email validation field on top of ping
-redirect_uri='http://127.0.0.1:8000/callback' #localhost urls for ping must be spun up by a pingid team member
-
 
 if os.environ.get('env') == 'local' or env=='local':
     clientID = os.getenv('devclientID')
@@ -19,6 +17,7 @@ if os.environ.get('env') == 'local' or env=='local':
     dbServer = os.getenv('dbServer')
     dbName = os.getenv('dbName')
     sqldbUsername = os.getenv('sqldbUsername')
+    redirect_uri='http://127.0.0.1:8000/callback' #localhost urls for ping must be spun up by a pingid team member
 
 else:
     # azure keyvault secrets 
@@ -32,4 +31,5 @@ else:
     dbServer = client.get_secret('dbServer').value
     dbName = client.get_secret('dbName').value
     sqldbUsername = client.get_secret('sqldbUsername').value
+    redirect_uri=''
 

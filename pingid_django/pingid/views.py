@@ -10,7 +10,6 @@ from django.shortcuts import redirect
 from .database import connection_url, get_user_list
 from django import forms 
 from .config import *
-import webbrowser
 from waiting import wait 
 import requests 
 
@@ -84,8 +83,7 @@ def pingauthrequired(request):
     code_challenge = generate_code_challenge(code_verifier)
     #make post request to authorization url bearing the code challenge in order to receive a code used in the next post which obtains the token
     PingTestEndpoint = f'{authorization_server}?client_id={clientID}&response_type=code&code_challenge_method=S256&redirect_uri={redirect_uri}&code_challenge={code_challenge}&scope={scope}'
-    webbrowser.open(PingTestEndpoint)
-    return HttpResponse("Please continue using the app via the pingid login tab.")
+    return redirect(PingTestEndpoint)
 
 #use 'code' to authenticate, get bearer token for use with all future post requests within app 
 def second_request(clientID, code_verifier, verification_code, redirect_uri, token_url):
